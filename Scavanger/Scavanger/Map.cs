@@ -7,25 +7,19 @@ public class Map
 
 	public Point End { get; set; }
 
-	public int Height { get; set; }
-
-	public int Width { get; set; }
-
 	public Tile[,] Tiles { get; set; }
 
 	public Wall[,] Walls { get; set; }
 
 	public Pickup[,] Pickups { get; set; }
 
-    public Map(Tile[,] tiles, Wall[,] walls, Pickup[,] pickups, int endX, int endY, int startX, int startY, int height, int width)
+    public Map(Tile[,] tiles, Wall[,] walls, Pickup[,] pickups, int endX, int endY, int startX, int startY)
     {
         Tiles = tiles;
         Walls = walls;
         Pickups = pickups;
         Start = new Point(startX, startY);
         End = new Point(endX, endY);
-        Height = height;
-        Width = width;
     }
 
     public Pickup RemovePickup(Point position)
@@ -37,14 +31,14 @@ public class Map
         return pickup;
 	}
 
-    public void Draw(Graphics g)
+    public void Draw(Graphics g, int xOrig, int yOrig)
     {
         for (int x = 0; x < Tiles.GetLength(1); x++)
         {
             for (int y = 0; y < Tiles.GetLength(0); y++)
             {
                 Image img = new Bitmap(AssetLocation.Tile + Tiles[x, y].ImageName);
-                g.DrawImage(img, x * 32, y * 32);
+                g.DrawImage(img, xOrig + (x * 32), yOrig + (y * 32));
             }
         }
     }
