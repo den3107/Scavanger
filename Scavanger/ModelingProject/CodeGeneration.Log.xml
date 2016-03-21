@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///D:/PROGRAMS/VISUAL STUDIO 2015 ENTERPRISE/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/CodeGenLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2016-03-02T10:35:57" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2016-03-02T10:35:57" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2016-03-02T10:35:57" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2016-03-02T10:35:57" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProjectLib\ModelingProjectLib.csproj" />
+  <Message Timestamp="2016-03-02T10:35:57" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-03-02T10:35:57" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-03-02T10:35:57" Importance="Diagnostic" Text="TemplateFilePath = D:\PROGRAMS\VISUAL STUDIO 2015 ENTERPRISE\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2016-03-02T10:35:57" Importance="Diagnostic" Text="ResolvedTemplateFilePath = D:\PROGRAMS\VISUAL STUDIO 2015 ENTERPRISE\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2016-03-02T10:35:57" Importance="Medium" Text="ModelingProject's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'ModelingProject::Tile' -  (Class), 'ModelingProject::Map' -  (Class), 'ModelingProject::World' -  (Class), 'ModelingProject::Enemy' -  (Class), 'ModelingProject::Player' -  (Class), 'ModelingProject::Pickup' -  (Class), 'ModelingProject::Wall' -  (Class) " />
+  <Message Timestamp="2016-03-02T10:35:58" Importance="Medium" Text="'ModelingProject::Tile' -  (Class) : success (file replaced) - C:\Users\Dennisf\Source\Repos\Scavanger\Scavanger\ModelingProjectLib\GeneratedCode\Tile.cs" />
+  <Message Timestamp="2016-03-02T10:35:58" Importance="Medium" Text="'ModelingProject::Map' -  (Class) : success (file replaced) - C:\Users\Dennisf\Source\Repos\Scavanger\Scavanger\ModelingProjectLib\GeneratedCode\Map.cs" />
+  <Message Timestamp="2016-03-02T10:35:58" Importance="Medium" Text="'ModelingProject::World' -  (Class) : success (file replaced) - C:\Users\Dennisf\Source\Repos\Scavanger\Scavanger\ModelingProjectLib\GeneratedCode\World.cs" />
+  <Message Timestamp="2016-03-02T10:35:58" Importance="Medium" Text="'ModelingProject::Enemy' -  (Class) : success (file replaced) - C:\Users\Dennisf\Source\Repos\Scavanger\Scavanger\ModelingProjectLib\GeneratedCode\Enemy.cs" />
+  <Message Timestamp="2016-03-02T10:35:58" Importance="Medium" Text="'ModelingProject::Player' -  (Class) : success (file replaced) - C:\Users\Dennisf\Source\Repos\Scavanger\Scavanger\ModelingProjectLib\GeneratedCode\Player.cs" />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Medium" Text="'ModelingProject::Pickup' -  (Class) : success (file replaced) - C:\Users\Dennisf\Source\Repos\Scavanger\Scavanger\ModelingProjectLib\GeneratedCode\Pickup.cs" />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Medium" Text="'ModelingProject::Wall' -  (Class) : success (file replaced) - C:\Users\Dennisf\Source\Repos\Scavanger\Scavanger\ModelingProjectLib\GeneratedCode\Wall.cs" />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="Name = EnumTemplate" />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProjectLib\ModelingProjectLib.csproj" />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="TemplateFilePath = D:\PROGRAMS\VISUAL STUDIO 2015 ENTERPRISE\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4" />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="ResolvedTemplateFilePath = D:\PROGRAMS\VISUAL STUDIO 2015 ENTERPRISE\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4" />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Medium" Text="ModelingProject's Text Template Binding: 'EnumTemplate' will apply EnumTemplate.t4 to: 'ModelingProject::ImageLocation' -  (Enumeration) " />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Medium" Text="'ModelingProject::ImageLocation' -  (Enumeration) : success (file replaced) - C:\Users\Dennisf\Source\Repos\Scavanger\Scavanger\ModelingProjectLib\GeneratedCode\ImageLocation.cs" />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProjectLib\ModelingProjectLib.csproj" />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="TemplateFilePath = D:\PROGRAMS\VISUAL STUDIO 2015 ENTERPRISE\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="ResolvedTemplateFilePath = D:\PROGRAMS\VISUAL STUDIO 2015 ENTERPRISE\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Medium" Text="ModelingProject's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'ModelingProject::Tile' -  (Class), 'ModelingProject::Map' -  (Class), 'ModelingProject::World' -  (Class), 'ModelingProject::Enemy' -  (Class), 'ModelingProject::Player' -  (Class), 'ModelingProject::Pickup' -  (Class), 'ModelingProject::Wall' -  (Class) " />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="'ModelingProject::Tile' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="'ModelingProject::Map' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="'ModelingProject::World' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="'ModelingProject::Enemy' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="'ModelingProject::Player' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="'ModelingProject::Pickup' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-02T10:35:59" Importance="Diagnostic" Text="'ModelingProject::Wall' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="The selection included 20 elements which were not bound to a template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'ModelingProject' -  (ModelStoreModel): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'acef6178-982a-409b-a7ff-65fc9b2342fa' -  (Comment): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'Point' -  (UndefinedType): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'PictureBox' -  (UndefinedType): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'Tile[]' -  (UndefinedType): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'Wall[]' -  (UndefinedType): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'Pickup[]' -  (UndefinedType): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'Double' -  (UndefinedType): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'List&lt;Enemy&gt;' -  (UndefinedType): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'ModelingProject::' -  (Dependency): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'ModelingProject::' -  (Association): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'ModelingProject::' -  (Association): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'ModelingProject::' -  (Association): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'ModelingProject::' -  (Association): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'ModelingProject::' -  (Association): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'ModelingProject::' -  (Association): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'ModelingProject::' -  (Dependency): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'ModelingProject::' -  (Dependency): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'ModelingProject::' -  (Dependency): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="Diagnostic" Text="'ModelingProject::' -  (Dependency): no bound template." />
+  <Message Timestamp="2016-03-02T10:36:00" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+</Log>
