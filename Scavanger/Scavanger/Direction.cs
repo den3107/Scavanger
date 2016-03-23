@@ -4,5 +4,6 @@
     Left,
     Right,
     Up,
+    Attack,
     None
 }

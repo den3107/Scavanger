@@ -59,95 +59,84 @@ public class World
 
     public void MoveEnemies(int moveDelay)
 	{
-
-	}
+        foreach (Enemy enemy in Enemies)
+        {
+            int speed = enemy.Speed;
+            Direction result = enemy.CanSeePlayer(this);
+            if (IsHunting(result, enemy))
+            {
+                speed = enemy.HuntSpeed;
+            }
+            for (int i = 0; i < speed; i++)
+            {
+                if (enemy.Move(this, result))
+                {
+                    Player.Health -= enemy.Strength;
+                    if (PlayerDead())
+                    {
+                        return;
+                    }
+                    break;
+                }
+                result = enemy.CanSeePlayer(this);
+                if (IsHunting(result, enemy))
+                {
+                    speed = enemy.HuntSpeed;
+                }
+                Thread.Sleep(moveDelay);
+            }
+        }
+    }
 
 	public void MovePlayer()
 	{
-        bool moved = false;
-        while (!moved)
+        for(int i = 0; i < Player.Speed; i++)
         {
-            switch (keyPressed)
+            bool moved = false;
+            while (!moved)
             {
-                case Direction.Down:
-                    Player.currentDirection = Direction.Down;
+                if (IsMovePossible(Player, keyPressed))
+                {
+                    Player.ProcessMove(keyPressed);
                     keyPressed = Direction.None;
-                    if (IsMovePossible(Player, Direction.Down))
-                    {
-                        Point p = Player.Position;
-                        p.Y++;
-                        Player.Position = p;
-                        moved = true;
-                        break;
-                    }
-                    break;
-                case Direction.Left:
-                    Player.currentDirection = Direction.Left;
-                    keyPressed = Direction.None;
-                    if (IsMovePossible(Player, Direction.Left))
-                    {
-                        Point p = Player.Position;
-                        p.X--;
-                        Player.Position = p;
-                        moved = true;
-                        break;
-                    }
-                    break;
-                case Direction.Right:
-                    Player.currentDirection = Direction.Right;
-                    keyPressed = Direction.None;
-                    if (IsMovePossible(Player, Direction.Right))
-                    {
-                        Point p = Player.Position;
-                        p.X++;
-                        Player.Position = p;
-                        moved = true;
-                        break;
-                    }
-                    break;
-                case Direction.Up:
-                    Player.currentDirection = Direction.Up;
-                    keyPressed = Direction.None;
-                    if (IsMovePossible(Player, Direction.Up))
-                    {
-                        Point p = Player.Position;
-                        p.Y--;
-                        Player.Position = p;
-                        moved = true;
-                        break;
-                    }
-                    break;
+                    moved = true;
+                }
+            }
+
+            if(PlayerAtEnd())
+            {
+                break;
             }
         }
         ProcessFood();
 	}
 
-    private bool IsMovePossible(Entity entity, Direction dir)
+    public bool IsMovePossible(Entity entity, Direction dir)
     {
         if (entity.Solid)
         {
             switch (dir)
             {
                 case Direction.Down:
-                    if (!Map.Tiles[entity.Position.X, entity.Position.Y + 1].Passable || EntityAt(entity.Position.X, entity.Position.Y + 1))
+                    if (!Map.Tiles[entity.X, entity.Y + 1].Passable || EntityAt(entity.X, entity.Y + 1))
                     {
                         return false;
                     }
                     break;
                 case Direction.Left:
-                    if (!Map.Tiles[entity.Position.X - 1, entity.Position.Y].Passable || EntityAt(entity.Position.X - 1, entity.Position.Y))
+                    if (!Map.Tiles[entity.X - 1, entity.Y].Passable || EntityAt(entity.X - 1, entity.Y))
                     {
                         return false;
                     }
                     break;
                 case Direction.Right:
-                    if (!Map.Tiles[entity.Position.X + 1, entity.Position.Y].Passable || EntityAt(entity.Position.X + 1, entity.Position.Y))
+                    if (!Map.Tiles[entity.X + 1, entity.Y].Passable || EntityAt(entity.X + 1, entity.Y))
                     {
                         return false;
                     }
                     break;
                 case Direction.Up:
-                    if (!Map.Tiles[entity.Position.X, entity.Position.Y - 1].Passable || EntityAt(entity.Position.X, entity.Position.Y - 1))
+                    if (!Map.Tiles[entity.X, entity.Y - 1].Passable || EntityAt(entity.X, entity.Y - 1))
                     {
                         return false;
                     }
@@ -158,14 +147,26 @@ public class World
         return true;
     }
 
+    private bool IsHunting(Direction dir, Enemy enemy)
+    {
+        bool condition1 = dir != Direction.None;
+        bool condition2 = !enemy.playerLastSeen.Equals(new Point(-1, -1));
+
+        return condition1 || condition2;
+    }
+
     private bool EntityAt(int x, int y)
     {
         foreach(Entity entity in Enemies)
         {
-            if(entity.Position.X == x && entity.Position.Y == y)
+            if(entity.X == x && entity.Y == y)
             {
                 return true;
             }
+        }
+        if (Player.X == x && Player.Y == y)
+        {
+            return true;
         }
         return false;
     }
@@ -183,11 +184,11 @@ public class World
     {
         if(Player.Food < 1)
         {
-            Player.Health--;
+            Player.Health -= 10;
         }
         else
         {
-            Player.Food--;
+            Player.Food -= 5;
         }
     }
 

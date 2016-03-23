@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -30,8 +31,8 @@ namespace Scavanger
             turnText = "";
             turnColor = Color.White;
 
-        // Link foreground picturebox to background picturebox for transparency to work
-        entitiesPictureBox.Parent = backgroundPictureBox;
+            // Link foreground picturebox to background picturebox for transparency to work
+            entitiesPictureBox.Parent = backgroundPictureBox;
 
             // Create testing map
             Tile[,] tiles = { { new Tile("Wall.png", false), new Tile("Wall.png", false),  new Tile("Wall.png", false),  new Tile("Wall.png", false),  new Tile("Wall.png", false),  new Tile("Wall.png", false),  new Tile("Wall.png", false)  },
@@ -43,8 +44,8 @@ namespace Scavanger
                               { new Tile("Wall.png", false), new Tile("Wall.png", false),  new Tile("Wall.png", false),  new Tile("Wall.png", false),  new Tile("Wall.png", false),  new Tile("ground.png", true), new Tile("Wall.png", false)  } };
             Map map = new Map(tiles, null, null, 6, 5, 1, 1);
             List<Enemy> enemies = new List<Enemy>();
-            enemies.Add(new Enemy(10, 1, "troll.png", 3, 5, 1, true, 10, AssetLocation.Enemy, 2, true));
-            Player player = new Player(100, 1, "player.png", 1, 1, 1, true, 0, AssetLocation.Player, 100);
+            enemies.Add(new Enemy(10, 10, 1, "troll.png", 3, 5, 1, true, 10, AssetLocation.Enemy, 2, true));
+            Player player = new Player(100, 100, 1, "player.png", 1, 2, 1, true, 0, AssetLocation.Player, 100, 100);
             world = new World(map, enemies, player, backgroundPictureBox.Height / 32, backgroundPictureBox.Width / 32);
 
             UpdateStats();
@@ -64,13 +65,25 @@ namespace Scavanger
                 ChangeTurnLabel("It's your turn", Color.Green);
                 world.MovePlayer();
 
+                if (world.PlayerAtEnd() && CheckPlayerDeath())
+                {
+                    ChangeTurnLabel("You won, but died", Color.Yellow);
+                    break;
+                }
+
                 if (world.PlayerAtEnd())
                 {
                     ChangeTurnLabel("You reached the end", Color.Green);
                     break;
                 }
+                
+                if (CheckPlayerDeath())
+                {
+                    break;
+                }
 
                 ChangeTurnLabel("It's the enemy's turn", Color.Red);
+                Thread.Sleep(100);
                 world.MoveEnemies(moveDelay);
 
                 if (CheckPlayerDeath())
@@ -95,7 +108,7 @@ namespace Scavanger
             turnLabel.Text = turnText;
             turnLabel.ForeColor = turnColor;
             UpdateStats();
-            CheckPlayerDeath();
+            //CheckPlayerDeath();
             entitiesPictureBox.Invalidate();
         }
 
@@ -125,7 +138,7 @@ namespace Scavanger
                 case Keys.Down:
                     lock(world)
                     {
-                    world.keyPressed = Direction.Down;
+                        world.keyPressed = Direction.Down;
                     }
                     break;
                 case Keys.Left:

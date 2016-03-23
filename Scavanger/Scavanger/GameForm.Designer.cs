@@ -208,7 +208,7 @@
             // tickTimer
             // 
             this.tickTimer.Enabled = true;
-            this.tickTimer.Interval = 50;
+            this.tickTimer.Interval = 20;
             this.tickTimer.Tick += new System.EventHandler(this.tickTimer_Tick);
             // 
             // returnToMenuButton
@@ -252,6 +252,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
             this.Name = "GameForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = " ";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.entitiesPictureBox)).EndInit();
