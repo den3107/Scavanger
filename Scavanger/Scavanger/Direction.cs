@@ -1,9 +1,12 @@
-﻿public enum Direction
+﻿namespace Scavanger
 {
-    Down,
-    Left,
-    Right,
-    Up,
-    Attack,
-    None
+    public enum Direction
+    {
+        Down,
+        Left,
+        Right,
+        Up,
+        Attack,
+        None
+    }
 }

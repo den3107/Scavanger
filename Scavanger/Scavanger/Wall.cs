@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Drawing;
 
-public class Wall
+namespace Scavanger
 {
-	public String ImageName { get; set; }
+    public class Wall
+    {
+        public String ImageName { get; set; }
 
-	public Wall(String imageName)
-	{
-        ImageName = imageName;
-	}
+        public Wall(String imageName)
+        {
+            ImageName = imageName;
+        }
+    }
 }

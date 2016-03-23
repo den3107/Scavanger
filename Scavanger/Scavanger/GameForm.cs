@@ -45,7 +45,7 @@ namespace Scavanger
             Map map = new Map(tiles, null, null, 6, 5, 1, 1);
             List<Enemy> enemies = new List<Enemy>();
             enemies.Add(new Enemy(10, 10, 1, "troll.png", 3, 5, 1, true, 10, AssetLocation.Enemy, 2, true));
-            Player player = new Player(100, 100, 1, "player.png", 1, 2, 1, true, 0, AssetLocation.Player, 100, 100);
+            Player player = new Player(100, 100, 1, "player.png", 1, 1, 1, true, 0, AssetLocation.Player, 100, 100);
             world = new World(map, enemies, player, backgroundPictureBox.Height / 32, backgroundPictureBox.Width / 32);
 
             UpdateStats();
