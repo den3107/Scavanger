@@ -18,11 +18,11 @@ namespace Scavanger
 
         public int RangeBonus { get; set; }
 
-        public double SpeedBonus { get; set; }
+        public int SpeedBonus { get; set; }
 
         public double StrengthBonus { get; set; }
 
-        public Pickup(double foodRecovery, double healthRecovery, String imageName, double maxFoodBonus, double maxHealthBonus, int posX, int posY, int rangeBonus, double speedBonus, double strengthBonus)
+        public Pickup(double foodRecovery, double healthRecovery, String imageName, double maxFoodBonus, double maxHealthBonus, int rangeBonus, int speedBonus, double strengthBonus)
         {
             ImageName = imageName;
             FoodRecovery = foodRecovery;

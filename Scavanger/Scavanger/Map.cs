@@ -39,8 +39,22 @@ namespace Scavanger
             {
                 for (int y = 0; y < Tiles.GetLength(0); y++)
                 {
-                    Image img = new Bitmap(AssetLocation.Tile + Tiles[x, y].ImageName);
-                    g.DrawImage(img, xOrig + (x * 32), yOrig + (y * 32));
+                    if (Tiles[x, y] != null)
+                    {
+                        Image img = new Bitmap(AssetLocation.Tile + Tiles[x, y].ImageName);
+                        g.DrawImage(img, xOrig + (x * 32), yOrig + (y * 32));
+                    }
+                }
+            }
+            for (int x = 0; x < Pickups.GetLength(1); x++)
+            {
+                for (int y = 0; y < Pickups.GetLength(0); y++)
+                {
+                    if (Pickups[x, y] != null)
+                    {
+                        Image img = new Bitmap(AssetLocation.Pickup + Pickups[x, y].ImageName);
+                        g.DrawImage(img, xOrig + (x * 32), yOrig + (y * 32));
+                    }
                 }
             }
         }

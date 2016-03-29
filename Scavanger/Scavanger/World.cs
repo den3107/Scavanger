@@ -85,7 +85,10 @@ namespace Scavanger
                     {
                         speed = enemy.HuntSpeed;
                     }
-                    Thread.Sleep(moveDelay);
+                    if (i < speed)
+                    {
+                        Thread.Sleep(moveDelay);
+                    }
                 }
             }
         }
@@ -110,43 +113,59 @@ namespace Scavanger
                     break;
                 }
             }
-            ProcessFood();
+            Player tempPlayer = Player;
+            tempPlayer = ProcessHunger(tempPlayer);
+            tempPlayer = ProcessPickup(tempPlayer);
+            lock(Player)
+            {
+                Player = tempPlayer;
+            }
         }
 
         public bool IsMovePossible(Entity entity, Direction dir)
         {
-            if (entity.Solid)
+            switch (dir)
             {
-                switch (dir)
-                {
-                    case Direction.Down:
-                        if (!Map.Tiles[entity.X, entity.Y + 1].Passable || EntityAt(entity.X, entity.Y + 1))
-                        {
-                            return false;
-                        }
-                        break;
-                    case Direction.Left:
-                        if (!Map.Tiles[entity.X - 1, entity.Y].Passable || EntityAt(entity.X - 1, entity.Y))
-                        {
-                            return false;
-                        }
-                        break;
-                    case Direction.Right:
-                        if (!Map.Tiles[entity.X + 1, entity.Y].Passable || EntityAt(entity.X + 1, entity.Y))
-                        {
-                            return false;
-                        }
-                        break;
-                    case Direction.Up:
-                        if (!Map.Tiles[entity.X, entity.Y - 1].Passable || EntityAt(entity.X, entity.Y - 1))
-                        {
-                            return false;
-                        }
-                        break;
-                    default: return false;
-                }
+                case Direction.Down:
+                    if (IsOccupied(entity.Solid, Map.Tiles[entity.X, entity.Y + 1], entity.X, entity.Y + 1))
+                    {
+                        return false;
+                    }
+                    break;
+                case Direction.Left:
+                    if (IsOccupied(entity.Solid, Map.Tiles[entity.X - 1, entity.Y], entity.X - 1, entity.Y))
+                    {
+                        return false;
+                    }
+                    break;
+                case Direction.Right:
+                    if (IsOccupied(entity.Solid, Map.Tiles[entity.X + 1, entity.Y], entity.X + 1, entity.Y))
+                    {
+                        return false;
+                    }
+                    break;
+                case Direction.Up:
+                    if (IsOccupied(entity.Solid, Map.Tiles[entity.X, entity.Y - 1], entity.X, entity.Y - 1))
+                    {
+                        return false;
+                    }
+                    break;
+                default: return false;
             }
             return true;
+        }
+
+        private bool IsOccupied(bool isSolid, Tile tile, int checkX, int checkY)
+        {
+            if(EntityAt(checkX, checkY))
+            {
+                return true;
+            }
+            if(isSolid && !tile.Passable)
+            {
+                return true;
+            }
+            return false;
         }
 
         private bool IsHunting(Direction dir, Enemy enemy)
@@ -182,16 +201,52 @@ namespace Scavanger
             return false;
         }
 
-        private void ProcessFood()
+        private Player ProcessHunger(Player player)
         {
             if (Player.Food < 1)
             {
-                Player.Health -= 10;
+                player.Health -= 10;
             }
             else
             {
-                Player.Food -= 5;
+                player.Food -= 5;
             }
+            return player;
+        }
+
+        private Player ProcessPickup(Player player)
+        {
+            Pickup pickup = Map.RemovePickup(player.Position);
+
+            if (pickup != null)
+            {
+                player.Food += pickup.FoodRecovery;
+                player.Health += pickup.HealthRecovery;
+                player.MaxFood += pickup.MaxFoodBonus;
+                player.MaxHealth += pickup.MaxHealthBonus;
+                player.Range += pickup.RangeBonus;
+                player.Speed += pickup.SpeedBonus;
+                player.Strength += pickup.StrengthBonus;
+
+                if (player.Food > player.MaxFood)
+                {
+                    player.Food = player.MaxFood;
+                }
+                if (player.Health > player.MaxHealth)
+                {
+                    player.Health = player.MaxHealth;
+                }
+                if (player.Food < 0)
+                {
+                    player.Food = 0;
+                }
+                if (player.Health < 0)
+                {
+                    player.Health = 0;
+                }
+            }
+
+            return player;
         }
 
         public bool PlayerDead()
